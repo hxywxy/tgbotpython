@@ -172,3 +172,9 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# 忽略敏感文件
+config.py
+.env
+__pycache__/
+*.pyc
