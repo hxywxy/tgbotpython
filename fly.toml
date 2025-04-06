@@ -3,7 +3,7 @@ kill_signal = "SIGINT"
 kill_timeout = 5
 
 [env]
-  TELEGRAM_TOKEN = "您的Token"  # 也可部署后单独设置
+  TELEGRAM_TOKEN = "8035331526:AAHmyjCLPn1oBzo-NaJoZn_exyXD9DA1I-8"  # 也可部署后单独设置
 
 [build]
   image = "flyio/python:3.9"
