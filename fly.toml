@@ -1,0 +1,12 @@
+app = "tg机器人.py"  # 改成唯一名称
+kill_signal = "SIGINT"
+kill_timeout = 5
+
+[env]
+  TELEGRAM_TOKEN = "您的Token"  # 也可部署后单独设置
+
+[build]
+  image = "flyio/python:3.9"
+
+[deploy]
+  strategy = "immediate"
