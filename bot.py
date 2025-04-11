@@ -3,7 +3,7 @@ from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, Callb
 import os
 
 # 从环境变量读取 TOKEN（更安全）
-TOKEN = os.getenv('TELEGRAM_TOKEN', '8035331526:AAHmyjCLPn1oBzo-NaJoZn_exyXD9DA1I-8')  # 默认值备用
+TOKEN = os.getenv('TELEGRAM_TOKEN')  # 默认值备用
 
 admin_id = "7637830394"
 Keyboard = [
@@ -14,7 +14,7 @@ reply_markup = InlineKeyboardMarkup(Keyboard)
 async def bth_1(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
-    text = '卡网：http://qmy.wlqwl.com/links/A556C71 频道https://t.me/yshaoNB 全球服推特八级号只要7r，一天之内有问题(开挂不换)包换，超出不负责(看情况)'
+    text = '卡网：http://qmy.wlqwl.com/links/A556C7A1 频道https://t.me/yshaoNB 全球服推特八级号只要7r，一天之内有问题(开挂不换)包换，超出不负责(看情况)'
     await context.bot.send_message(chat_id=update.effective_chat.id, text=text)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
