@@ -11,7 +11,7 @@ reply_markup = InlineKeyboardMarkup(Keyboard)
 async def bth_1(update: Update, context):
     query = update.callback_query
     await query.answer()
-    text = '卡网：http://qmy.wlqwl.com/links/A556C71 频道https://t.me/yshaoNB'
+    text = '卡网：http://qmy.wlqwl.com/links/A556C7A1 频道https://t.me/yshaoNB'
     await context.bot.send_message(chat_id=update.effective_chat.id, text=text)
 
 async def start(update: Update, context):
