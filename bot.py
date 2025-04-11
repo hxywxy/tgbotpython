@@ -4,7 +4,7 @@ from flask import Flask  # 新增
 import threading  # 新增
 
 # ----------- 你的原始代码完全保持不变 -----------
-TOKEN = '8035331526:AAHmyjCLPn1oBzo-NaJoZn_exyXD9DA1I-8'
+TOKEN = '8035331526:AAGXwavsmX7RdlI6faUzBLEOws_9KRC0YG0'
 admin_id = "7637830394"
 Keyboard = [[InlineKeyboardButton("宇少", callback_data="bth_1")]]
 reply_markup = InlineKeyboardMarkup(Keyboard)
