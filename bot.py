@@ -23,7 +23,7 @@ async def kawang(update: Update, context):
     await context.bot.send_message(chat_id=update.effective_chat.id, text=text)
 
 # 唯一必要修改：从环境变量读取Token
-TOKEN = os.getenv('TELEGRAM_TOKEN') or '8035331526:AAHmyjCLPn1oBzo-NaJoZn_exyXD9DA1I-8'  # 优先读环境变量
+TOKEN = os.getenv('TELEGRAM_TOKEN')  # 优先读环境变量
 
 # 保持您原有的初始化逻辑
 application = ApplicationBuilder().token(TOKEN).build()
