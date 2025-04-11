@@ -1,9 +1,7 @@
 import os
 import asyncio
-import threading  # 添加这行导入
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandler
-from flask import Flask  # 使用 Flask 替代 FastAPI
 
 TOKEN = os.getenv('TELEGRAM_TOKEN')  # 必须通过环境变量设置
 
@@ -20,12 +18,6 @@ async def handle_button_1(update: Update, context):
         text='卡网：http://qmy.wlqwl.com/links/A556C71\n频道：https://t.me/yshaoNB'
     )
 
-# HTTP 保活服务
-app_flask = Flask(__name__)
-@app_flask.route('/')
-def home():
-    return "Bot is alive!"
-
 async def run_bot():
     app = ApplicationBuilder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
@@ -35,6 +27,4 @@ async def run_bot():
     await asyncio.Event().wait()  # 永久运行
 
 if __name__ == '__main__':
-    # 启动 HTTP 服务和机器人
-    threading.Thread(target=lambda: app_flask.run(host="0.0.0.0", port=8000)).start()
-    asyncio.run(run_bot())
+    asyncio.run(run_bot())  # 只运行 Telegram 机器人
