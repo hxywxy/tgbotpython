@@ -1,9 +1,9 @@
 import os
 import asyncio
+import threading  # 添加这行导入
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandler
-from fastapi import FastAPI
-import uvicorn
+from flask import Flask  # 使用 Flask 替代 FastAPI
 
 TOKEN = os.getenv('TELEGRAM_TOKEN')  # 必须通过环境变量设置
 
@@ -21,8 +21,8 @@ async def handle_button_1(update: Update, context):
     )
 
 # HTTP 保活服务
-app_fastapi = FastAPI()
-@app_fastapi.get("/")
+app_flask = Flask(__name__)
+@app_flask.route('/')
 def home():
     return "Bot is alive!"
 
@@ -36,5 +36,5 @@ async def run_bot():
 
 if __name__ == '__main__':
     # 启动 HTTP 服务和机器人
-    threading.Thread(target=lambda: uvicorn.run(app_fastapi, host="0.0.0.0", port=8000)).start()
+    threading.Thread(target=lambda: app_flask.run(host="0.0.0.0", port=8000)).start()
     asyncio.run(run_bot())
