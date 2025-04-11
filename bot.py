@@ -34,7 +34,7 @@ async def run_bot():
     await app.start()
     await asyncio.Event().wait()  # 永久运行
 
-if name == 'main':
+if __name__ == '__main__':
     # 启动 HTTP 服务和机器人
     threading.Thread(target=lambda: uvicorn.run(app_fastapi, host="0.0.0.0", port=8000)).start()
     asyncio.run(run_bot())
